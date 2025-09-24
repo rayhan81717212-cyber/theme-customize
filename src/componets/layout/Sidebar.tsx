@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
+import "../../../public/assets/vendor/css/custom.css"
+import { Link } from 'react-router-dom'
 
-function Sidebar() {
+function Sidebar({asidebar, setAsidevar}:any) {
+  
   return (
     <>
-        <aside id="layout-menu" className="layout-menu menu-vertical menu bg-menu-theme">
+        <aside id="layout-menu" className={`layout-menu menu-vertical menu bg-menu-theme ${asidebar ? "activeLayout" : ""}`}>
           <div className="app-brand demo">
             <a href="index.html" className="app-brand-link">
               <span className="app-brand-logo demo">
@@ -11,9 +14,14 @@ function Sidebar() {
               <span className="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
             </a>
 
-            <a href="javascript:void(0);" className="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
-              <i className="bx bx-chevron-left bx-sm align-middle"></i>
-            </a>
+            <span  className="menu-link text-large ms-auto d-block d-xl-none" >
+              <span
+                className='crossBTN'
+                onClick={() => setAsidevar(!asidebar)}
+                style={{ cursor: 'pointer' }}>
+                &times;
+              </span>
+            </span>
           </div>
 
           <div className="menu-inner-shadow"></div>
@@ -21,18 +29,18 @@ function Sidebar() {
           <ul className="menu-inner py-1">
             {/* Dashboard */}
             <li className="menu-item active">
-              <a href="index.html" className="menu-link">
-                <i className="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Dashboard</div>
-              </a>
+              <Link className="menu-link" to={"/"}><i className="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Dashboard</div></Link>
             </li>
 
             {/* Layouts */}
             <li className="menu-item">
-              <a href="javascript:void(0);" className="menu-link menu-toggle">
-                <i className="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Layouts</div>
-              </a>
+              
+                <Link className="menu-link" to={"product"}><i className="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">Layouts</div></Link>
+                
+                
+              
 
               <ul className="menu-sub">
                 <li className="menu-item">
