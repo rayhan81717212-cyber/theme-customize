@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "../../../public/assets/vendor/css/custom.css"
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 function Sidebar({asidebar, setAsidevar}:any) {
   
@@ -28,16 +28,38 @@ function Sidebar({asidebar, setAsidevar}:any) {
 
           <ul className="menu-inner py-1">
             {/* Dashboard */}
-            <li className="menu-item active">
-              <Link className="menu-link" to={"/"}><i className="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Dashboard</div></Link>
-            </li>
+            <NavLink to={"/"} className={({isActive})=> isActive ? "menu-item active": "menu-item"}>
+                  <li className="menu-link"><i className="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Analytics">Dashboard</div>
+                </li>
+            </NavLink>
+            {/* Customs Menu */}
+               < NavLink to={"/users"} className={({isActive})=> isActive ? "menu-item active": "menu-item"}>
+                  <li className="menu-link" ><i className="menu-icon tf-icons bx bx-home-circle"></i>
+                      <div data-i18n="Analytics">Users</div>
+                  </li>
+                </NavLink>
+               <NavLink to={"/product"} className="menu-item">
+                  <li className="menu-link" ><i className="menu-icon tf-icons bx bx-home-circle"></i>
+                      <div data-i18n="Analytics">Products</div>
+                  </li>
+              </NavLink>
+               <NavLink to={"/managePost"} className="menu-item">
+                  <li className="menu-link" ><i className="menu-icon tf-icons bx bx-home-circle"></i>
+                      <div data-i18n="Analytics">Manage Post</div>
+                  </li>
+              </NavLink>
+               <li className="menu-item">
+                  <NavLink className="menu-link" to={"/pos"}><i className="menu-icon tf-icons bx bx-home-circle"></i>
+                      <div data-i18n="Analytics">Pos</div>
+                  </NavLink>
+              </li>
 
             {/* Layouts */}
             <li className="menu-item">
               
-                <Link className="menu-link" to={"product"}><i className="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Layouts</div></Link>
+                <NavLink className="menu-link" to={"product"}><i className="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">Layouts</div></NavLink>
                 
                 
               

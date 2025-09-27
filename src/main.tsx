@@ -7,14 +7,23 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './componets/layout/Layout.tsx'
 import Dashboard from './componets/pages/Dashboard.tsx'
+import Product from './componets/pages/Product.tsx'
+import ManagePosts from './componets/pages/post/ManagePosts.tsx'
+import Createpost from './componets/pages/post/Createpost.tsx'
 
 const router = createBrowserRouter([
   {path:"/", element:<Layout/>,
     children:[
       {index:true, element: <Dashboard/>},
-      {path:"product", element: <h1>Rhat Boss ꧁ঔৣ☬✞𝓓𝖔𝖓✞☬ঔৣ꧂</h1>}
+      {path:"/dashboard", element: <Dashboard/>},
+      {path:"/users", element: <h1>users</h1>},
+      {path:"/product", element: <Product/>},
+      {path:"/managePost", element: <ManagePosts/>},
+      {path:"/managePost", element: <ManagePosts/>},
+      {path:"/create-post", element: <Createpost/>},
     ]
   },
+  {path:"/pos", element: <h1>POS</h1>},
   { path:"login", element: <h1>Login</h1>},
 
 ])
