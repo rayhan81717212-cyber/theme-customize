@@ -10,6 +10,8 @@ import Dashboard from './componets/pages/Dashboard.tsx'
 import Product from './componets/pages/Product.tsx'
 import ManagePosts from './componets/pages/post/ManagePosts.tsx'
 import Createpost from './componets/pages/post/Createpost.tsx'
+import DetailsPost from './componets/pages/post/DetailsPost.tsx'
+import EditPost from './componets/pages/post/EditPost.tsx'
 
 const router = createBrowserRouter([
   {path:"/", element:<Layout/>,
@@ -21,6 +23,8 @@ const router = createBrowserRouter([
       {path:"/managePost", element: <ManagePosts/>},
       {path:"/managePost", element: <ManagePosts/>},
       {path:"/create-post", element: <Createpost/>},
+      {path:"/post/details/:id", element: <DetailsPost/>},
+      {path:"/post/edit/:id", element: <EditPost/>},
     ]
   },
   {path:"/pos", element: <h1>POS</h1>},

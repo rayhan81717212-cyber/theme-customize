@@ -64,9 +64,13 @@ function getData(){
                                         <td>{item.body}</td>
                                         <td>
                                             <div className="d-flex">
-                                                <button type='button' className='btn btn-icon btn-outline-success'>
+                                                <Link to={`/post/details/${item.id}`} type='button' className='btn btn-icon btn-outline-success'>
+                                                    <span className='tf-icons bx bx-search'></span>
+                                                    
+                                                </Link>
+                                                <Link to={`/post/edit/${item.id}`} type='button' className='btn btn-icon btn-outline-success'>
                                                     <span className='tf-icons bx bx-edit'></span>
-                                                </button>
+                                                </Link>
                                                 <button type='button' className='btn btn-icon btn-outline-danger'>
                                                     <span className='tf-icons bx bx-trash'></span>
                                                 </button>
