@@ -49,6 +49,16 @@ function Sidebar({asidebar, setAsidevar}:any) {
                       <div data-i18n="Analytics">Manage Post</div>
                   </li>
               </NavLink>
+               <NavLink to={"/manage-roles"} className="menu-item">
+                  <li className="menu-link" ><i className="menu-icon tf-icons bx bx-home-circle"></i>
+                      <div data-i18n="Analytics">Manage Roles</div>
+                  </li>
+              </NavLink>
+               <NavLink to={"/users"} className="menu-item">
+                  <li className="menu-link" ><i className="menu-icon tf-icons bx bx-home-circle"></i>
+                      <div data-i18n="Analytics">Users</div>
+                  </li>
+              </NavLink>
                <li className="menu-item">
                   <NavLink className="menu-link" to={"/pos"}><i className="menu-icon tf-icons bx bx-home-circle"></i>
                       <div data-i18n="Analytics">Pos</div>

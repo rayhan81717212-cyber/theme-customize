@@ -12,19 +12,26 @@ import ManagePosts from './componets/pages/post/ManagePosts.tsx'
 import Createpost from './componets/pages/post/Createpost.tsx'
 import DetailsPost from './componets/pages/post/DetailsPost.tsx'
 import EditPost from './componets/pages/post/EditPost.tsx'
+import ManageRoles from './componets/pages/role/ManageRoles.tsx'
+import CreateRoll from './componets/pages/role/CreateRoll.tsx'
+import ManageUsers from './componets/pages/users/ManageUsers.tsx'
+import CreateUsers from './componets/pages/users/CreateUsers.tsx'
 
 const router = createBrowserRouter([
   {path:"/", element:<Layout/>,
     children:[
       {index:true, element: <Dashboard/>},
       {path:"/dashboard", element: <Dashboard/>},
-      {path:"/users", element: <h1>users</h1>},
       {path:"/product", element: <Product/>},
       {path:"/managePost", element: <ManagePosts/>},
       {path:"/managePost", element: <ManagePosts/>},
       {path:"/create-post", element: <Createpost/>},
       {path:"/post/details/:id", element: <DetailsPost/>},
       {path:"/post/edit/:id", element: <EditPost/>},
+      {path:"/manage-roles", element: <ManageRoles />},
+      {path:"/create-roles", element: <CreateRoll />},
+      {path:"/users", element: <ManageUsers />},
+      {path:"/create-users", element: <CreateUsers />},
     ]
   },
   {path:"/pos", element: <h1>POS</h1>},

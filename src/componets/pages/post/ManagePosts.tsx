@@ -39,6 +39,12 @@ function getData(){
     })
 }
 
+//Delete Data
+//=====================
+const handleDelete = (id:number)=>{
+    console.log(id + "confirm delete");
+}
+
   return (
     <>
         <div className="container-xxl flex-grow-1 container-p-y">
@@ -71,7 +77,7 @@ function getData(){
                                                 <Link to={`/post/edit/${item.id}`} type='button' className='btn btn-icon btn-outline-success'>
                                                     <span className='tf-icons bx bx-edit'></span>
                                                 </Link>
-                                                <button type='button' className='btn btn-icon btn-outline-danger'>
+                                                <button type='button' onClick={()=>{confirm('Are you sure to delete') && handleDelete(item.id)}} className='btn btn-icon btn-outline-danger'>
                                                     <span className='tf-icons bx bx-trash'></span>
                                                 </button>
                                             </div>
