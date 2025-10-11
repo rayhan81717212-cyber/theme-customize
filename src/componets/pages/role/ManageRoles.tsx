@@ -1,5 +1,4 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../../config';
 
@@ -63,7 +62,7 @@ function ManageRoles() {
                                   <span className='tf-icons bx bx-search'></span>
                                   
                               </Link>
-                              <Link to={`/post/edit/${item.id}`} type='button' className='btn btn-icon btn-outline-success'>
+                              <Link to={`/update-roles/${item.id}`} type='button' className='btn btn-icon btn-outline-primary'>
                                   <span className='tf-icons bx bx-edit'></span>
                               </Link>
                               <button type='button' className='btn btn-icon btn-outline-danger'>

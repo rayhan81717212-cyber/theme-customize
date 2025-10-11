@@ -2,7 +2,7 @@
 import Footer from './Footer'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
-import React, { useState } from 'react'; 
+import  { useState } from 'react'; 
 import "../../../public/assets/vendor/css/custom.css"
 import { Outlet } from 'react-router-dom';
 

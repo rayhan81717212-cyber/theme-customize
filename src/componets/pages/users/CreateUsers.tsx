@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../../config'
-import type { role, users } from '../../../interface';
-import userDefault from '../../../interface';
+import type { role, users } from '../../../interface/userInterface';
+import userDefault from '../../../interface/userInterface';
 
 function CreateUsers() {
 

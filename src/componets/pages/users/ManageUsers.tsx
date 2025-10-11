@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import api from '../../../config'
-import type { users } from '../../../interface'
+import type { users } from '../../../interface/userInterface'
 
 function ManageUsers() {
     let [users, setUsers] = useState<users[]>([])
@@ -20,7 +20,18 @@ function ManageUsers() {
         console.error(err);
         })
     }
-
+// user Delete Function
+const [userId, setUserId] = useState <number>(0)
+    function handleModal(id: any){
+      // alert("Delete Confirm ")
+      // // setUserId(id);
+      api.delete(`delete-user?id=${id}`)
+      .then((res)=>{
+        console.log(res.data);
+        getDataUsers()
+      })
+      .catch((err)=>console.log(err))
+    }
 
   return (
     <>
@@ -53,6 +64,20 @@ function ManageUsers() {
                             <td>{item.email}</td>
                             <td>{item.address}</td>
                             <td>{item.role}</td>
+                            <td>
+                              <div className="d-flex">
+                                 <Link to={`/post/details/${item.id}`} type='button' className='btn btn-icon btn-outline-success'>
+                                     <span className='tf-icons bx bx-search'></span>
+                                     
+                                 </Link>
+                                 <Link to={`/post/edit/${item.id}`} type='button' className='btn btn-icon btn-outline-success'>
+                                     <span className='tf-icons bx bx-edit'></span>
+                                 </Link>
+                                 <button onClick={()=> setUserId(item.id)} type='button' className='btn btn-icon btn-outline-danger' data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                     <span className='tf-icons bx bx-trash'></span>
+                                 </button>
+                             </div>
+                            </td>
                             
                         </tr>
                     )
@@ -62,6 +87,25 @@ function ManageUsers() {
           </div>
         </div>
       </div>
+      {/* <!-- Modal --> */}
+      <div className="modal fade" id="deleteModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="text-center p-3">
+              <span className='tf-icons bx bx-trash fs-1 pb-3 text-danger'></span>
+              <h5>Are your sure you want to delete {userId}?</h5>
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" className="btn btn-danger" data-bs-dismiss="modal" onClick={()=> handleModal(userId)}>Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </>
   )
 }

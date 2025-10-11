@@ -1,7 +1,13 @@
-import React from 'react'
+import { Link, useNavigate } from "react-router-dom"
 
 
-function Navbar({ asidebar, setAsidevar }:any) {
+
+function Navbar({ setAsidevar }:any) {
+  const redirect = useNavigate()
+  const handleLogout = ()=>{
+        localStorage.removeItem("bearer_token");
+        redirect("/login");
+  }
   return (
     <>
         <nav
@@ -93,7 +99,7 @@ function Navbar({ asidebar, setAsidevar }:any) {
                       <div className="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="auth-login-basic.html">
+                      <a className="dropdown-item cursor-pointer" onClick={handleLogout}>
                         <i className="bx bx-power-off me-2"></i>
                         <span className="align-middle">Log Out</span>
                       </a>
